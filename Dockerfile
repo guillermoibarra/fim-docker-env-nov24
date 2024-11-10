@@ -46,7 +46,11 @@ ENV HOME="/home/taller"
 WORKDIR /home/taller
 
 # startup script to run
-COPY --chmod=0755 init.sh /usr/local/bin/startup.sh
+USER root
+COPY init.sh /usr/local/bin/startup.sh
+RUN sed -i 's/\r$//' /usr/local/bin/startup.sh
+RUN chmod +x /usr/local/bin/startup.sh
+USER taller
 
 # Copy resources into /opt/resources
 COPY resources /opt/resources

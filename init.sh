@@ -23,6 +23,7 @@ fi
 if [ ! -f "$TARGET_DIR/.zshrc" ]; then
     echo "Copying .zshrc configuration..."
     cp "$RESOURCE_DIR/.zshrc" "$TARGET_DIR/.zshrc"
+    sed -i 's/\r$//' $TARGET_DIR/.zshrc
 fi
 
 # Copy starship configuration if it doesn't exist
@@ -30,6 +31,7 @@ if [ ! -f "$TARGET_DIR/.config/starship.toml" ]; then
     echo "Copying starship configuration..."
     mkdir -p "$TARGET_DIR/.config"
     cp "$RESOURCE_DIR/starship.toml" "$TARGET_DIR/.config/starship.toml"
+    sed -i 's/\r$//' $TARGET_DIR/.config/starship.toml
 fi
 
 # Execute the container's main process

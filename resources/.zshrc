@@ -65,4 +65,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 # nvim alias
-alias jl="jupyter lab --ip=0.0.0.0 --no-browser --allow-root"
+alias jl="jupyter lab --ip=0.0.0.0 --no-browser --allow-root > jupyter.log &"
